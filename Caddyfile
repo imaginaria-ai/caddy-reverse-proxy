@@ -55,7 +55,10 @@
 		header_up Host {upstream_hostport}
 	}
 
-	handle_path {/admin}/* {
+	handle_path {$BACKEND_PATH:/admin}/* {
+		# the /admin/ prefix WILL be stripped from the uri sent to the proxy host
+		#
+		# proxy all requests for /api/* to the backend, configure this variable in the service settings
 		reverse_proxy {
 			# for private networking replicas are exposed as multiple dns results, use those dns results as the upstreams
 			dynamic a {
