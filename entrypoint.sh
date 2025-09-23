@@ -2,12 +2,15 @@
 
 set -euo pipefail
 
-# for backwards compatibility, seperates host and port from url
+# for backwards compatibility, separates host and port from url
 export FRONTEND_DOMAIN=${FRONTEND_DOMAIN:-${FRONTEND_HOST%:*}}
 export FRONTEND_PORT=${FRONTEND_PORT:-${FRONTEND_HOST##*:}}
 
 export BACKEND_DOMAIN=${BACKEND_DOMAIN:-${BACKEND_HOST%:*}}
 export BACKEND_PORT=${BACKEND_PORT:-${BACKEND_HOST##*:}}
+
+export ADMIN_FRONTEND_DOMAIN=${ADMIN_FRONTEND_DOMAIN:-${FRONTEND_HOST%:*}}
+export ADMIN_FRONTEND_PORT=${ADMIN_FRONTEND_PORT:-${FRONTEND_HOST##*:}}
 
 # strip https:// or https:// from domain if necessary
 FRONTEND_DOMAIN=${FRONTEND_DOMAIN##*://}
