@@ -39,7 +39,7 @@
 		# for private networking replicas are exposed as multiple dns results, use those dns results as the upstreams
 		dynamic a {
 			name {$FRONTEND_DOMAIN}
-			port {env.FRONTEND_PORT}
+			port 3000
 			refresh 1s
 			dial_timeout 30s
 			versions ipv4 ipv6
@@ -68,7 +68,7 @@
 			# for private networking replicas are exposed as multiple dns results, use those dns results as the upstreams
 			dynamic a {
 				name {$BACKEND_DOMAIN}
-				port {env.BACKEND_PORT}
+				port 3000
 				refresh 1s
 				dial_timeout 30s
 				versions ipv4 ipv6
